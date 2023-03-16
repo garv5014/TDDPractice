@@ -18,7 +18,6 @@ public class myQueue
 
     public int Dequeue()
     {
-        empty = true;
         return _queue[0];
     }
 
@@ -30,7 +29,7 @@ public class myQueue
 
     public bool IsEmpty()
     {
-        return empty;
+        return (_queue.Count == 0);
     }
 
     public int Peek()
