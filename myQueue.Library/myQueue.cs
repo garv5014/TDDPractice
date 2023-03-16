@@ -18,7 +18,9 @@ public class myQueue
 
     public int Dequeue()
     {
-        return _queue[0];
+        var firstItem = _queue[0];
+        _queue.RemoveAt(0);
+        return firstItem;
     }
 
     public void Enqueue(int item)
