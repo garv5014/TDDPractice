@@ -33,11 +33,21 @@ public class Tests
         queue.Dequeue();
         Assert.IsTrue(queue.IsEmpty());
     }
+
     [Test]
     public void CanPeekFirstItem()
     { 
         var queue = new myQueue();
         queue.Enqueue(2);
         Assert.IsTrue(2 == queue.Peek());
+    }
+
+    [Test]
+    public void FirstItemStaysTheSameAfterTwoEnqueues()
+    {
+        var queue = new myQueue();
+        queue.Enqueue(3);
+        queue.Enqueue(2);
+        Assert.IsTrue(3 == queue.Peek());
     }
 }
