@@ -1,7 +1,7 @@
 namespace myQueue.Test;
-using myQueue.Library;
-using System.Collections;
 
+using FluentAssertions;
+using myQueue.Library;
 public class Tests
 {
     [SetUp]
@@ -35,6 +35,16 @@ public class Tests
     }
 
     [Test]
+    public void IsNotEmptyAfterTwoEnqueueOneDequeue()
+    {
+        var queue = new myQueue();
+        queue.Enqueue(2);
+        queue.Enqueue(3);
+        queue.Dequeue();
+        Assert.IsFalse(queue.IsEmpty());
+    }
+
+    [Test]
     public void CanPeekFirstItem()
     { 
         var queue = new myQueue();
@@ -49,5 +59,13 @@ public class Tests
         queue.Enqueue(3);
         queue.Enqueue(2);
         Assert.IsTrue(3 == queue.Peek());
+    }
+
+    [Test]
+    public void DequeueReturnsFirstItem()
+    {
+        var queue = new myQueue();
+        queue.Enqueue(3);
+        queue.Dequeue().Should().Be(3);
     }
 }
