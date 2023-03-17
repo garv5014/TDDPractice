@@ -13,14 +13,14 @@ public class Tests
     [Test]
     public void IsEmptyOnCreation()
     {
-        var queue = new myQueue();
+        var queue = new myQueue(10);
         Assert.IsTrue(queue.IsEmpty());
     }
 
     [Test]
     public void IsNotEmptyOneEnqueue()
     {
-        var queue = new myQueue();
+        var queue = new myQueue(10);
         queue.Enqueue(2);
         Assert.IsFalse(queue.IsEmpty());
     }
@@ -28,7 +28,7 @@ public class Tests
     [Test]
     public void IsEmptyAfterEnqueueDequeue()
     {
-        var queue = new myQueue();
+        var queue = new myQueue(10);
         queue.Enqueue(2);
         queue.Dequeue();
         Assert.IsTrue(queue.IsEmpty());
@@ -37,7 +37,7 @@ public class Tests
     [Test]
     public void IsNotEmptyAfterTwoEnqueueOneDequeue()
     {
-        var queue = new myQueue();
+        var queue = new myQueue(10);
         queue.Enqueue(2);
         queue.Enqueue(3);
         queue.Dequeue();
@@ -47,7 +47,7 @@ public class Tests
     [Test]
     public void CanPeekFirstItem()
     { 
-        var queue = new myQueue();
+        var queue = new myQueue(10);
         queue.Enqueue(2);
         Assert.IsTrue(2 == queue.Peek());
     }
@@ -55,16 +55,16 @@ public class Tests
     [Test]
     public void FirstItemStaysTheSameAfterTwoEnqueues()
     {
-        var queue = new myQueue();
+        var queue = new myQueue(10);
         queue.Enqueue(3);
         queue.Enqueue(2);
-        Assert.IsTrue(3 == queue.Peek());
+        queue.Peek().Should().Be(3);
     }
 
     [Test]
     public void DequeueReturnsFirstItem()
     {
-        var queue = new myQueue();
+        var queue = new myQueue(10);
         queue.Enqueue(3);
         queue.Dequeue().Should().Be(3);
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,35 +9,40 @@ namespace myQueue.Library;
 
 public class myQueue
 {
-    public bool empty;
-    private List<int> _queue;
-    public myQueue()
+    private int[] _queue;
+    private int _head; 
+    private int _tail;
+    public int Count { get; private set; }
+    public myQueue(int size = 10)
     {
-        empty = true;
-        _queue = new List<int>();
+        _queue = new int[size];
+        _head = 0;
+        _tail = 0;
+        Count= 0;
     }
 
     public int Dequeue()
     {
-        var firstItem = _queue[0];
-        _queue.RemoveAt(0);
+        var firstItem = _queue[_head];
+        Count--;
         return firstItem;
     }
 
     public void Enqueue(int item)
     {
-        _queue.Add(item);
-        empty = false;
+        _queue[_tail] = item;
+        _tail++;
+        Count++;
     }
 
     public bool IsEmpty()
     {
-        return (_queue.Count == 0);
+        return (Count == 0);
     }
 
     public int Peek()
     {
-        if (empty)
+        if (IsEmpty())
         {
             return -1;
         }
