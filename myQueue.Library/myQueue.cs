@@ -40,6 +40,7 @@ public class myQueue
         { throw new Exception(message: "Queue is empty"); }
         var firstItem = _queue[_head];
         Count--;
+        _head++;
         return firstItem;
     }
 

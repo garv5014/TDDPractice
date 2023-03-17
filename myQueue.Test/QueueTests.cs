@@ -124,7 +124,6 @@ public class Tests
     [Test]
     public void DequeueOrderIsCorrect()
     {
-        int targetItem;
         var queue = new myQueue(3);
         queue.Enqueue(3);
         queue.Enqueue(2);
@@ -132,5 +131,8 @@ public class Tests
         queue.Dequeue().Should().Be(3);
         queue.Dequeue().Should().Be(2);
         queue.Dequeue().Should().Be(1);
+        queue.Enqueue(3);
+        queue.Dequeue().Should().Be(3);
+        queue.IsEmpty().Should().BeTrue();
     }
 }
