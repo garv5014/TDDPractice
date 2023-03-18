@@ -16,26 +16,48 @@ public class PrimeFactorTests
     {
         _primeFactors = new PrimeFactors();
     }
+
     [Test]
     public void PrimeFactorOfOne()
     {
         _primeFactors.FindFactors(1).Should().BeEmpty();
     }
+
     [Test]
     public void PrimeFactorOfTwo()
     {
-        _primeFactors.FindFactors(2).Should().OnlyContain(f => f == 2 );
+        _primeFactors.FindFactors(2).Should().BeEquivalentTo(new List<int> { 2 });
     }
 
     [Test]
     public void PrimeFactorOfThree()
     {
-        _primeFactors.FindFactors(3).Should().Contain(3);
+        _primeFactors.FindFactors(3).Should().BeEquivalentTo(new List<int> { 3 });
     }
 
     [Test]
     public void PrimeFactorOfFour()
     {
-        _primeFactors.FindFactors(4).Should().Contain(new int[] { 2, 2 });
+        _primeFactors.FindFactors(4).Should().BeEquivalentTo(new List<int> { 2, 2 });
+    }
+    [Test]
+    public void PrimeFactorOfFive()
+    {
+        _primeFactors.FindFactors(5).Should().BeEquivalentTo(new List<int> { 5 });
+    }
+    [Test]
+    public void PrimeFactorOfSix()
+    {
+        _primeFactors.FindFactors(6).Should().BeEquivalentTo(new List<int> { 2, 3 });
+    }
+    [Test]
+    public void PrimeFactorOfSeven()
+    {
+        _primeFactors.FindFactors(7).Should().BeEquivalentTo(new List<int> { 7 });
+    }
+    [Test]
+    public void PrimeFactorOfEight()
+    {
+        _primeFactors.FindFactors(8).Should().BeEquivalentTo(new List<int> { 2, 2, 2 });
     }
 }

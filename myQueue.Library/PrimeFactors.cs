@@ -13,13 +13,14 @@ public class PrimeFactors
         var factors = new List<int>();
         if (n > 1)
         {
-            if (n % 2 == 0)
+            while (n % 2 == 0)
             {
                 factors.Add(2);
                 n /= 2;
             }
-            factors.Add(n);
         }
+        if (n > 1)
+            factors.Add(n);
         return factors;
     }
 }
