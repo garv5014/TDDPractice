@@ -66,4 +66,10 @@ public class PrimeFactorTests
     {
         _primeFactors.FindFactors(9).Should().BeEquivalentTo(new List<int> { 3,3 });
     }
+
+    [Test]
+    public void PrimeFactorOfBigNumber()
+    {
+        _primeFactors.FindFactors(2*2*3*3*5*5*7*7).Should().BeEquivalentTo(new List<int> { 2 , 2 , 3 , 3 , 5 , 5 , 7 , 7 });
+    }
 }
