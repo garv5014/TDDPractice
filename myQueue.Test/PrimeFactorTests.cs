@@ -60,4 +60,10 @@ public class PrimeFactorTests
     {
         _primeFactors.FindFactors(8).Should().BeEquivalentTo(new List<int> { 2, 2, 2 });
     }
+
+    [Test]
+    public void PrimeFactorOfNine()
+    {
+        _primeFactors.FindFactors(9).Should().BeEquivalentTo(new List<int> { 3,3 });
+    }
 }

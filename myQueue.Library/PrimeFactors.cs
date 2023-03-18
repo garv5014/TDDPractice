@@ -11,13 +11,15 @@ public class PrimeFactors
     public List<int> FindFactors(int n)
     {
         var factors = new List<int>();
-        if (n > 1)
+        int divisor = 2;
+        while (n > 1)
         {
-            while (n % 2 == 0)
+            while (n % divisor == 0) //while is a general form of if, and if is the degenerate form of while.
             {
-                factors.Add(2);
-                n /= 2;
+                factors.Add(divisor);
+                n /= divisor;
             }
+            divisor++;
         }
         if (n > 1)
             factors.Add(n);
