@@ -24,7 +24,7 @@ public class PrimeFactorTests
     [Test]
     public void PrimeFactorOfTwo()
     {
-        _primeFactors.FindFactors(2).Should().Contain(2);
+        _primeFactors.FindFactors(2).Should().OnlyContain(f => f == 2 );
     }
 
     [Test]
@@ -36,6 +36,6 @@ public class PrimeFactorTests
     [Test]
     public void PrimeFactorOfFour()
     {
-        _primeFactors.FindFactors(4).Should().Contain(new int[] { 2,2 } );
+        _primeFactors.FindFactors(4).Should().Contain(new int[] { 2, 2 });
     }
 }
