@@ -1,8 +1,7 @@
-namespace myQueue.Test;
+namespace TDDProjects.Test;
 
 using FluentAssertions;
-using myQueue.Library;
-public class Tests
+public class QueueTests
 {
     [SetUp]
     public void Setup()
